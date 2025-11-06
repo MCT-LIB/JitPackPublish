@@ -1,0 +1,31 @@
+def USER_NAME = '{github-username}'
+def REPOSITORY_NAME = '{github-repository-name}'
+def VERSION = '1.0.0'
+def AVAILABLE_LIBRARY = 'aar'
+
+apply from: "${projectDir}/github-jitpack-publish.gradle"
+
+GithubJitPackPublish {
+    it.userName = USER_NAME
+    it.repositoryName = REPOSITORY_NAME
+    it.version = VERSION
+    it.availableLibrary = AVAILABLE_LIBRARY
+}
+
+tasks.register('generatePom') {
+    dependsOn tasks.named("generatePomFileForReleasePublication")
+    doLast {
+        copy {
+            from "${projectDir}/build/publications/release/pom-default.xml"
+            into "${projectDir}/generator/generated/${REPOSITORY_NAME}"
+            rename('pom-default.xml', 'pom.xml')
+        }
+    }
+}
+
+dependencies {
+    implementation libs.svg
+    implementation libs.jlatexmath.android
+    implementation libs.jlatexmath.android.cyrillic
+    implementation libs.jlatexmath.android.greek
+}

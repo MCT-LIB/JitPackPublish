@@ -1,0 +1,18 @@
+[versions]
+agp = "8.9.0"
+appcompat = "1.7.1"
+jlatexmathAndroid = "0.2.0"
+material = "1.13.0"
+svg = "1.4"
+
+[libraries]
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+jlatexmath-android = { module = "ru.noties:jlatexmath-android", version.ref = "jlatexmathAndroid" }
+jlatexmath-android-cyrillic = { module = "ru.noties:jlatexmath-android-font-cyrillic", version.ref = "jlatexmathAndroid" }
+jlatexmath-android-greek = { module = "ru.noties:jlatexmath-android-font-greek", version.ref = "jlatexmathAndroid" }
+svg = { module = "com.caverock:androidsvg-aar", version.ref = "svg" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }

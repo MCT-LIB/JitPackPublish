@@ -1,0 +1,6 @@
+jdk:
+  - openjdk17
+install:
+  - AAR_FILE="-Dfile=./resources/library.aar"
+  - POM_FILE="-DpomFile=./resources/pom.xml"
+  - mvn install:install-file $AAR_FILE $POM_FILE
