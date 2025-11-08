@@ -24,8 +24,6 @@ tasks.register('generatePom') {
 }
 
 dependencies {
-    implementation libs.svg
-    implementation libs.jlatexmath.android
-    implementation libs.jlatexmath.android.cyrillic
-    implementation libs.jlatexmath.android.greek
+    implementation libs.appcompat
+    implementation libs.material
 }
